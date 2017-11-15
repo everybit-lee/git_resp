@@ -15,21 +15,21 @@ import pymysql
 
 conn=pymysql.connect(host="localhost",port=3306,user="root",passwd="123456",db="bibanalyse",charset='utf8')
 cur=conn.cursor()
-f01=open('tmp.txt','w')
+#f01=open('tmp.txt','w')
 sqlstr='select a_num,j_num,author from bib'#' where a_num=%s'
 cur.execute(sqlstr)#,'A_5858')
 rs=cur.fetchall()
 if rs:
 
     for res in rs:
-        f01.write('\n')
-        f01.write('原始值=')
-        f01.write(str(res))
-        print '原始值========================================================='
-        print res
+        #f01.write('\n')
+        #f01.write('原始值=')
+        #f01.write(str(res))
+        #print '原始值========================================================='
+        #print res
         aa=res[2].split(' and ') #先将最后一个取出来
         #print '分离and=========='
-        print aa
+        #print aa
         auths = []
         for k in aa:
             k=k.strip()  #消去前后空格
@@ -44,14 +44,14 @@ if rs:
             for kb in ka:
                 tk=kb.strip()
                 kk.append(tk)
-            print '需要处理的列表kk======'
-            print(kk)
+            #print '需要处理的列表kk======'
+            #print(kk)
             pre=''
             nw=''
             for n in range(0,len(kk)):   #将结尾是句号的字符跟前一个字符串合并为一个
                 #print '进入循环了：--->'+str(n)
                 na.append(kk[n])#print auths[n]
-                print '当前--->' + str(kk[n])
+                #print '当前--->' + str(kk[n])
                 if n>0 and ((len(kk[n])<3 and kk[n][-1]=='.') or (kk[n][-4]=='.')):
                     nw=pre + ', ' + kk[n]
                     del na[len(na)-1]
@@ -68,12 +68,14 @@ if rs:
 
         else:
             na=auths
-        f01.write('\n')
-        f01.write('结果----------------------')
-        f01.write(str(na))
+        #f01.write('\n')
+        #f01.write('结果----------------------')
+        #f01.write(str(na))
 
-        sqlstr='insert into '
+        sqlstr='insert into authors(an,jn,name) VALUES(%s,%s,%s)'
         for name in na:
-
-f01.close()
+            cur.execute(sqlstr,(res[0],res[1],name))
+            conn.commit()
+print 'done!'
+#f01.close()
 conn.close()

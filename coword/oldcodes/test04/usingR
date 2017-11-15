@@ -1,0 +1,19 @@
+# -*- coding: utf-8 -*-
+"""
+Created on 20170623
+  利用rpy2
+  调用R语言处理igraph数据
+
+@author: Yuyao Lee
+"""
+import rpy2
+import rpy2.robjects as robj
+
+rsp= '''
+library(igraph)
+nl<-read_graph("E:/pydata/0623/a06.ncol",format="ncol")
+wt <- walktrap.community(nl, modularity=TRUE, weights=nl$weight)
+'''
+pywt=robj.r(rsp)
+pywt=robj.r('summary(wt)')
+print(pywt)

@@ -1,0 +1,58 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Fri Dec 16 14:53:04 2016
+
+@author: Administrator
+"""
+import pymysql
+
+conn=pymysql.connect(host="localhost",port=3306,user="lyy",passwd="123456",db="paper3",charset='utf8');
+cur=conn.cursor();
+
+sqlstr="select DISTINCT area from data_fortsv_20170518 order by area"
+cur.execute(sqlstr)
+areas=cur.fetchall()
+for ar in areas:
+    #print("===========" + ar[0])
+    sqlstr = "select DISTINCT tspan from data_fortsv_20170518 where area=%s order by tspan"
+    cur.execute(sqlstr, ar[0])
+    tans = cur.fetchall()
+    for ts in tans:
+        #print("     ******" + ar[0]+"---"+ts[0])
+        sqlstr = "select DISTINCT T1 from data_fortsv_20170518 where tspan=%s and area=%s order by T1"
+        cur.execute(sqlstr, (ts[0],ar[0]))
+        t1NOs = cur.fetchall()
+        for t1 in t1NOs: #对每一个T1进行处理输出tsv文件
+            print("              ******" + ar[0] + "---" + ts[0] + "---" + t1[0])
+            sqlstr = "select * from data_fortsv_20170518 where tspan=%s and area=%s and T1=%s"
+            cur.execute(sqlstr, (ts[0],ar[0],t1[0]))
+            rets = cur.fetchall()
+            if len(rets)>0:
+                t2s=[x[4] for x in rets] #取得特定列的数据
+                #if len(t2s)>1:
+                li=""
+                line="\t"
+                for le in t2s:
+                    li=li+"-"+le
+                    line=line+le+"\t"
+                t2No="T2No"+li
+                #print(t2No)
+                fname=str(len(t2s))+"-Area-"+ar[0]+"_Tspan-"+ts[0]+"_T1No-"+t1[0]+"_"+t2No+".tsv"
+                f=open("data3\\"+fname,"w+")
+                line="rate"+line
+                #print(line)
+                f.write(line+ '\n')
+                j = 0.1
+                for i in range(5,36):
+                    line ="\t"
+                    t2s=[x[i] for x in rets]
+                    for le in t2s:
+                        line=line+le+"\t"
+                    line=str(j)+line
+                #print(line)
+                    f.write(line + '\n')
+                    j=j+0.01
+                f.close()
+
+conn.close()
+print('Done!')

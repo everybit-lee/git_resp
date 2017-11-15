@@ -1,0 +1,11 @@
+# -*- coding: utf-8 -*-
+
+import pymysql
+import math
+from igraph import *
+
+g=Graph.Read_Ncol("newview.txt",names=True,directed=True,weights=True)
+plot(g, "igraph.pdf", layout="kamada_kawai", vertex_label=g.vs["name"], edge_width=rescale(g.es["weight"], out_range=(math.log(11),math.log(234))))
+
+
+print('所有操作结束')

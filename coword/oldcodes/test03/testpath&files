@@ -1,0 +1,84 @@
+# -*- coding: utf-8 -*-
+
+import os
+import pymysql
+'''
+def split(dn):
+    st=dn.split('_',1)
+    for s in st:
+        print(s)
+'''
+tf=open('tfs.txt','w+')
+
+conn=pymysql.connect(host="localhost",port=3307,user="root",passwd="123456",db="paper",charset='utf8');
+cur=conn.cursor();
+
+Getfield={
+    '计算机系统与高性能计算':'A01',
+    '计算机网络':'A02',
+    '网络与信息安全':'A03',
+    '软件工程、系统软件与程序设计语言':'A04',
+    '数据库、数据挖掘与内容检索':'A05',
+    '计算机科学理论':'A06',
+    '计算机图形学与多媒体':'A07',
+    '人工智能与模式识别':'A08',
+    '人机交互与普适计算':'A09',
+    '前沿、交叉与综合':'A10'
+}
+
+getT={
+      '1997_1999':'T1',
+      '2000_2002':'T2',
+      '2003_2005':'T3',
+      '2006_2008':'T4',
+      '2009_2011':'T5',
+      '2012_2014':'T6'
+      }
+
+path='C:\\test01\\Dynamic\\TeamAnalyse\\data\\en\\3'
+dirs=os.listdir(path)
+for f in dirs:
+    if os.path.isdir(os.path.join(path,f)): #得到文件夹名
+        #print(path)
+        st=f.split('_',1)
+        level=st[0][0]
+        #print(level)
+        fieldtxt=st[0][1:len(st[0])]
+        newf=fieldtxt.decode('gbk').encode('utf-8')
+        #tf.write(fieldtxt+'\n')
+        #print(fieldtxt)
+        field=Getfield.get(newf)  #转换对应的领域，好像不成功#
+        #print(field)
+        tspan=st[1]
+        if tspan in getT:
+            tst=getT.get(tspan)
+        else:
+            tst=''
+        #print(tspan)
+        #print(level+'--'+field+'--'+tspan)
+        #for s in st:  #分解文件夹名
+            #if s[0] in ['A','B','C']:
+                #print(s[0])   #级别
+                #print(s[1:len(s)])  #
+            #else:
+                #print(s)
+        #接着处理文件
+
+        mbf = open(path+'\\'+f + '\\membership.txt')
+        dgf = open(path+'\\'+f + '\\degree.txt')
+        mb_lines = mbf.readlines()
+        dg_lines = dgf.readlines()
+        i = 0
+        for i in range(1, len(mb_lines)):
+            mbs = mb_lines[i].split(' ', 1)
+            dgs = dg_lines[i].split(' ', 1)
+            dgaid=dgs[0][1:len(dgs[0])-1]
+            #print(dgs[0] + '--' + dgs[1] + '--' + mbs[1] + '--' + mbs[0]) #输出aid/degree/membership/memberNum
+            sqlstr='INSERT INTO mb_dg2(rank,field,fieldtxt,Timespan,ts,author_id,membership,degree) VALUES(%s,%s,%s,%s,%s,%s,%s,%s)'
+            cur.execute(sqlstr,(level,field,newf,tspan,tst,dgaid,mbs[1],dgs[1]))
+            conn.commit()
+            tf.write(field+'--' +tspan +'--'+ dgs[0] +'--'+ mbs[1] +'--'+ dgs[1] + '\n')
+
+
+conn.close()
+tf.close()

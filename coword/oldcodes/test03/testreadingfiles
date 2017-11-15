@@ -1,0 +1,20 @@
+# -*- coding: utf-8 -*-
+# 成功的测试从两个txt文件读取数据且平行输出
+mbf=open('C:\\test01\\Dynamic\\test'+'\\membership.txt')
+dgf = open('C:\\test01\\Dynamic\\test' + '\\degree.txt')
+mb_lines=mbf.readlines()
+dg_lines=dgf.readlines()
+i=0
+for i in range(1,len(mb_lines)):
+    mbs=mb_lines[i].split(' ',1)
+    dgs=dg_lines[i].split(' ',1)
+    print(dgs[0] + '--' + dgs[1] + '--' + mbs[1]+ '--' + mbs[0])
+''''
+while i<=flines:
+    mb = mb_lines.readline()
+    mbs=mb.split(' ',1)
+    dg = dg_lines.readline()
+    dgs=dg.split(' ',1)
+    print(dgs[0]+'--'+dgs[1]+'--'+mbs[1])
+    #print(dgs[0]+'--'+dgs[1]+'--'+mbs[1])  #输出　作者号／度／团队号
+'''

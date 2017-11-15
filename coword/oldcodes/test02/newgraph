@@ -1,0 +1,64 @@
+# -*- coding: utf-8 -*-
+
+import pymysql
+import math
+from igraph import *
+# 将MysqlHelper的几个函数写出来
+def connDB():  # 连接数据库
+    conn = pymysql.connect(host="localhost", port=3306, user="root", passwd="123456", db="wf", charset='utf8');
+    cur = conn.cursor();
+    return (conn, cur);
+def exeUpdate(conn, cur, sql):  # 更新或插入操作
+    sta = cur.execute(sql);
+    conn.commit();
+    return (sta);
+def exeDelete(conn, cur, IDs):  # 删除操作
+    sta = 0;
+    for eachID in IDs.split(' '):
+        sta += cur.execute("delete from students where Id=%d" % (int(eachID)));
+    conn.commit();
+    return (sta);
+def exeQuery(cur, sql):  # 查找操作
+    cur.execute(sql);
+    return (cur);
+def connClose(conn, cur):  # 关闭连接，释放资源
+    cur.close();
+    conn.close();
+#########################下面开始事务操作##############
+'''conn,cur=connDB()
+g = Graph(directed=True)
+
+cur.execute('SELECT * FROM kwtest')
+#cur.execute('SELECT keyword1,keyword2,fre FROM kws_fre_12_30')
+#conn.commit()
+getkws=cur.fetchall()
+i=0
+for kwp in getkws:
+    print('===========================')
+    print(kwp[0])
+    print(kwp[1])
+    print(kwp[2])
+    print(kwp[3])
+    print(kwp[4])
+    print(kwp[5])
+
+    #print(kwp)
+    g.add_vertex(name=kwp[1])
+    print(g.vs)
+    print(len(g.vs)-1)
+    i=i+1
+    g.add_vertex(name=kwp[3])
+    g.add_edge(source=i-1,target=i,weight=kwp[5])
+    #print(g[kwp[1],kwp[3]])
+    print(g)'''
+
+g=Graph.Read_Ncol("newview.txt",names=True,directed=True,weights=True)
+
+
+plot(g, "igraph.pdf", layout="kamada_kawai", vertex_label=g.vs["name"], edge_width=rescale(g.es["weight"], out_range=(math.log(11),math.log(234))))
+#g.es["width"] = rescale(g.es["weight"], out_range=(math.log(11),math.log(234)))
+#plot(g)
+#print(getkws)
+
+#connClose(conn,cur)
+print('所有操作结束')

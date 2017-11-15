@@ -1,0 +1,97 @@
+compuKR
+ts1=T1--area=A02---Mbs=14---ts2=T2--area=A02---Mbs=68	
+len(res)=0
+ts1=T1--area=A02---Mbs=14---ts2=T2--area=A02---Mbs=69	
+len(res)=0
+ts1=T1--area=A02---Mbs=14---ts2=T2--area=A02---Mbs=70	
+len(res)=0
+ts1=T1--area=A02---Mbs=14---ts2=T2--area=A02---Mbs=71	
+len(res)=0
+ts1=T1--area=A02---Mbs=14---ts2=T2--area=A02---Mbs=72	
+len(res)=0
+ts1=T1--area=A02---Mbs=14---ts2=T2--area=A02---Mbs=73	
+len(res)=1
+update----Tspan=T2---area=A02---T1=14---T2=73---rfloat=0.111111111111
+Traceback (most recent call last):
+  File "E:/pycode/test04/compuKR.py", line 61, in <module>
+    rfloat).decode("utf-8") + "\n")
+IOError: [Errno 28] No space left on device
+-----------------------------------
+compuKR_T4
+ts1=T3--area=A01---Mbs=171---ts2=T4--area=A01---Mbs=19	
+len(res)=0
+ts1=T3--area=A01---Mbs=171---ts2=T4--area=A01---Mbs=20	
+len(res)=0
+ts1=T3--area=A01---Mbs=171---ts2=T4--area=A01---Mbs=21	
+len(res)=0
+ts1=T3--area=A01---Mbs=171---ts2=T4--area=A01---Mbs=22	
+len(res)=0
+ts1=T3--area=A01---Mbs=171---ts2=T4--area=A01---Mbs=23	
+len(res)=0
+ts1=T3--area=A01---Mbs=171---ts2=T4--area=A01---Mbs=24	
+len(res)=0
+ts1=T3--area=A01---Mbs=171---ts2=T4--area=A01---Mbs=25	
+len(res)=0
+ts1=T3--area=A01---Mbs=171---ts2=T4--area=A01---Mbs=26	
+len(res)=0
+ts1=T3--area=A01---Mbs=171---ts2=T4--area=A01---Mbs=27	
+Traceback (most recent call last):
+  File "E:/pycode/test04/compuKR_T4", line 61, in <module>
+len(res)=1
+update----Tspan=T4---area=A01---T1=171---T2=27---rfloat=0.25
+    rfloat).decode("utf-8") + "\n")
+IOError: [Errno 28] No space left on device
+-----------------------------------------
+compuKR_T5
+ts1=T4--area=A01---Mbs=184---ts2=T5--area=A01---Mbs=36	
+len(res)=0
+ts1=T4--area=A01---Mbs=184---ts2=T5--area=A01---Mbs=37	
+len(res)=0
+ts1=T4--area=A01---Mbs=184---ts2=T5--area=A01---Mbs=38	
+len(res)=0
+ts1=T4--area=A01---Mbs=184---ts2=T5--area=A01---Mbs=39	
+len(res)=0
+ts1=T4--area=A01---Mbs=184---ts2=T5--area=A01---Mbs=40	
+len(res)=0
+ts1=T4--area=A01---Mbs=184---ts2=T5--area=A01---Mbs=41	
+Traceback (most recent call last):
+  File "E:/pycode/test04/compuKR_T5", line 61, in <module>
+len(res)=2
+update----Tspan=T5---area=A01---T1=184---T2=41---rfloat=0.666666666667
+    rfloat).decode("utf-8") + "\n")
+IOError: [Errno 28] No space left on device
+---------------------------------
+compuKR_T6
+ts1=T5--area=A01---Mbs=458---ts2=T6--area=A01---Mbs=173	
+len(res)=0
+ts1=T5--area=A01---Mbs=458---ts2=T6--area=A01---Mbs=174	
+len(res)=0
+ts1=T5--area=A01---Mbs=458---ts2=T6--area=A01---Mbs=175	
+len(res)=0
+ts1=T5--area=A01---Mbs=458---ts2=T6--area=A01---Mbs=176	
+len(res)=0
+ts1=T5--area=A01---Mbs=458---ts2=T6--area=A01---Mbs=177	
+len(res)=0
+ts1=T5--area=A01---Mbs=458---ts2=T6--area=A01---Mbs=178	
+len(res)=0
+ts1=T5--area=A01---Mbs=458---ts2=T6--area=A01---Mbs=179	
+len(res)=0
+ts1=T5--area=A01---Mbs=458---ts2=T6--area=A01---Mbs=180	
+len(res)=0
+ts1=T5--area=A01---Mbs=458---ts2=T6--area=A01---Mbs=181	
+len(res)=0
+ts1=T5--area=A01---Mbs=458---ts2=T6--area=A01---Mbs=182	
+len(res)=0
+ts1=T5--area=A01---Mbs=458---ts2=T6--area=A01---Mbs=183	
+len(res)=0
+ts1=T5--area=A01---Mbs=458---ts2=T6--area=A01---Mbs=184	
+len(res)=0
+ts1=T5--area=A01---Mbs=458---ts2=T6--area=A01---Mbs=185	
+len(res)=0
+ts1=T5--area=A01---Mbs=458---ts2=T6--area=A01---Mbs=186	
+len(res)=0
+ts1=T5--area=A01---Mbs=458---ts2=T6--area=A01---Mbs=187	
+
+Process finished with exit code 1
+
+

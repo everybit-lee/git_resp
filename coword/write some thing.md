@@ -10,12 +10,12 @@ Nevertheless, little research has focused on providing a comprehensive literatur
 Nevertheless, little research has focused on providing a comprehensive literature review, which will help researchers to better understand how this stream of research has evolved over latest decade.
 In this study, we use TF/IDF and co-occurrence analysis in order to provide useful up-to-date information to picture the state of the art about current research and evolution of the topic. Analysis on Data sets obtained from titles and abstracts extracted from 8131 articles published in 12 journals over the last decade (2007–2017) allowed identifying relevant
 authors and institutions, key constructs and themes involved, and trends of knowledge development. Main findings suggest an increasing academic interest on the topic over the last 5 years and a wide variety of constructs that were clustered in four main themes that we named: (i) effectiveness, (ii) acceptance, (iii) engagement and (iv) social interactions. Future research lines are also addressed.
-#####20171115
-###co-word: 计算机或IT技术应用于教育领域，有哪些主要的研究主题？
-###在十年间，这些主题有哪些变化和发展？这些主题的文献量发生了哪些变化
-###有哪些主要的共用术语？
-###各个主题有哪些主要的研究者？
-###有哪些研究方法？
+#20171115
+##co-word: 计算机或IT技术应用于教育领域，有哪些主要的研究主题？
+##在十年间，这些主题有哪些变化和发展？这些主题的文献量发生了哪些变化
+##有哪些主要的共用术语？
+##各个主题有哪些主要的研究者？
+##有哪些研究方法？
 
 【已完成】
 1、词频统计
@@ -25,7 +25,8 @@ authors and institutions, key constructs and themes involved, and trends of know
 5、还需要关键词/通用关键术语
 5、高频词或通用术语对应的文章数、年份统计
 
-#####20171116
+#20171116
+
 tf/idf用于确定公共术语时，应该用术语在各自期刊的排位还是值本身？
 用排位，位置信息取代了原始值，会掩盖什么吗?----但起码比较难说服别人；很难说清为何要用排位
 用值，直接得到平均值，不会有太大争议

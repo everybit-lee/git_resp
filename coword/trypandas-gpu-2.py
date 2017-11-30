@@ -34,8 +34,8 @@ for st in filerange:
     plt.axis([0,nf.shape[0],0,1])  #用最大行数，即最大词数，作为数轴横轴
     plt.grid(True)
     plt.plot(nf,'k.')
-    pngfile=pngfile+ "n2-"+ str(st) +".png"
-    plt.savefig(pngfile,dpi=120)
+    pngfile=pngfile+ "n2--svg-"+ str(st) +".svg"
+    plt.savefig(pngfile)#,dpi=120)
     pngfile="./data/"
 
 
@@ -60,8 +60,8 @@ for st in filerange:
     plt.xlabel('k')
     plt.ylabel(u'平均畸变程度', fontproperties=font)
     plt.title(u'用肘部法则来确定最佳的K值', fontproperties=font)
-    pngfile =pngfile+ "n2-zhou" + str(st) + ".png"
-    plt.savefig(pngfile, dpi=120)
+    pngfile =pngfile+ "n2-zhou-svg-" + str(st) + ".svg"
+    plt.savefig(pngfile)#, dpi=120)
     #plt.show()
     pngfile="./data/"
 
@@ -101,8 +101,8 @@ for st in filerange:
                       (t, metrics.silhouette_score
                        (nf, kmeans_model.labels_,metric='euclidean'))
                       ,fontproperties=font)
-    pngfile =pngfile+ "n2-res" + str(st) + ".png"
-    plt.savefig(pngfile, dpi=120)
+    pngfile =pngfile+ "n2-res-svg-" + str(st) + ".svg"
+    plt.savefig(pngfile)#, dpi=120)
     #plt.show()
 
 print "---------------Done!-------------"

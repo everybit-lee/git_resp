@@ -31,7 +31,7 @@ for st in filerange:
         kw.append(wd)  # 用kw接收所有词
     nf = df.values  # 转换为numpy adarray
     print "length of kw=" + str(len(kw))
-    print kw
+    #print kw
     plt.figure()
     plt.axis([0, nf.shape[0], 0, 1])  # 用最大行数，即最大词数，作为数轴横轴
     plt.grid(True)
@@ -39,12 +39,12 @@ for st in filerange:
     # plt.plot(nf,'k.')
     ax1 = plt.subplot(122, projection='polar')
     ax2 = plt.subplot(121)
-    ax1.plot(nf, '.', lw=2)
-    plt.title(u'polar coordinates', fontproperties=font)
+    #ax1.plot(nf, '.', lw=2)
+    #plt.title(u'polar coordinates', fontproperties=font)
     ax2.plot(nf, '.', lw=2)
     plt.title(u'Cartesian coordinates', fontproperties=font)
-    svgfile = pngfile + "polar01" + str(st) + ".svg"
-    plt.savefig(svgfile)
+    svgfile = pngfile + "polar01" + str(st) + ".png"
+    plt.savefig(svgfile,dpi=1000)
     pngfile = "./data/"
 
 # ===============肘部法确定

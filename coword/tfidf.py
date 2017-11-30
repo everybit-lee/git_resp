@@ -35,7 +35,7 @@ for i in range(len(weight)):  # 打印每类文本的tf-idf词语权重，第一
 		sheet.write(k, p, key[0])
 		sheet.write(k, p+1, key[1])
 		k=k+1
-	p=p+3
+	#p=p+3
 
 # 最后，将以上操作保存到指定的Excel文件中
 book.save("./data/tfidf-total.xls")

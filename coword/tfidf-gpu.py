@@ -23,26 +23,30 @@ weight = tfidf.toarray()  # 将tf-idf矩阵抽取出来，元素a[i][j]表示j�
 print "len(word)=" +str(len(word)) +"-----  and weight.shape="
 print weight.shape
 p=1
+dict={}
+k=1
 for i in range(len(weight)):  # 打印每类文本的tf-idf词语权重，第一个for遍历所有文本，第二个for便利某一类文本下的词语权重
 	#st="J"+str(i)
 	#sheet.write(0,p,st)
 	#sheet.write(0,p,'tfidf')
-	dict={}
 	for j in range(len(word)):
 		if weight[i][j]>0:
-			dict[word[j]]=weight[i][j] #将结果放在一个字典中
+			sheet.write(k, p, word[j])
+			sheet.write(k, p+1, weight[i][j])
+			k = k + 1
+			#dict[word[j]]=weight[i][j] #将结果放在一个字典中
 			#print word[j],weight[i][j]
-print "len(dict)=  "  + str(len(dict))
-sortres = sorted(dict.items(), key=lambda item: item[1], reverse=True) # sort the dict
-print "len(sortres)=  " + str(len(sortres))
-k=1
-for key in sortres:
+#print "len(dict)=  "  + str(len(dict))
+#sortres = sorted(dict.items(), key=lambda item: item[1], reverse=True) # sort the dict
+#print "len(sortres)=  " + str(len(sortres))
+#
+#for key in sortres:
 	#print key[0]+","+key[1]
 	#f01.write(key[0]+","+key[1])
 	#f01.write("\n")
-	sheet.write(k, p, key[0])
-	sheet.write(k, p+1, key[1])
-	k=k+1
+#	sheet.write(k, p, key[0])
+#	sheet.write(k, p+1, key[1])
+#
 	#p=p+3
 
 # 最后，将以上操作保存到指定的Excel文件中

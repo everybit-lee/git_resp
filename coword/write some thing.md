@@ -1,3 +1,7 @@
+# paper
+
+
+
 研究目标：信息技术已经成为社会发展的重要引擎。信息技术在教育领域有着深入而广泛的应用。该怎样去评估信息技术在教育领域的应用程度？信息技术在教育领域中有哪些研究路径和趋势？
 材料和方法：对研究领域中知名的12个期刊在web of science核心库中被收录的8131篇文献进行关键词
 
@@ -9,6 +13,8 @@ Nevertheless, little research has focused on providing a comprehensive literatur
 Nevertheless, little research has focused on providing a comprehensive literature review, which will help researchers to better understand how this stream of research has evolved over latest decade.
 In this study, we use TF/IDF and co-occurrence analysis in order to provide useful up-to-date information to picture the state of the art about current research and evolution of the topic. Analysis on Data sets obtained from titles and abstracts extracted from 8131 articles published in 12 journals over the last decade (2007–2017) allowed identifying relevant
 authors and institutions, key constructs and themes involved, and trends of knowledge development. Main findings suggest an increasing academic interest on the topic over the last 5 years and a wide variety of constructs that were clustered in four main themes that we named: (i) effectiveness, (ii) acceptance, (iii) engagement and (iv) social interactions. Future research lines are also addressed.
+
+---
 
 ###[干货！详述Python NLTK下如何使用stanford NLP工具包](http://www.cnblogs.com/baiboy/p/nltk1.html) 
 
@@ -288,3 +294,15 @@ n3-1000仅保留1586个关键词，即9个以上的词
 ###接下来：
 1. 评估分类结果；
 2. svg保存有问题（gpu上）
+#20171130 折腾数据
+1. 对之前分类结果进行整理，寻求结果的解释；
+2. 对所有文本进行tfidf，不按期刊分开。结果有点出人意料；只返回190个单词，而且，意义更加明确；相比之下，按期刊分开得到的结果意义不太明确;澄清: 经过对源代码的重新检查，发现190个结果只是其中很小的一部分。已重新获得新的结果集，尚未分析。
+3. 比较详尽讨论 从外部读入数据构建图的方法和实践 [NetworkX使用笔记：读入外部文件并转换成各种格式](http://sparkandshine.net/networkx-use-notes-read-external-file-convert-to-other-formats/)
+4. 在authors.xlsm中产生可用于生成合著网络的网络结构  a1,a2,weight---进度：excel vba程序慢，感觉进入死循环
+
+### 今天总结：
+
+1. 状态不佳；头绪有点多
+2. tfidf-byyear已经做好，下一步需要进行批处理，对每一年的数据进行选举（和聚类？）
+3. 等authors.xlsm合著网络结构结果出来后，可以导入networkx中进行社交化分析
+4. 论文可以进行初稿的撰写了。
